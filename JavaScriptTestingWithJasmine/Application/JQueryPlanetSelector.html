@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Planet Selector</title>
+	<script type="text/javascript" src="/Scripts/jquery-2.0.3.min.js"></script>
+	<script type="text/javascript" src="JQueryPlanetSelector.js"></script>
+	
+	<style>
+	.hidden {
+		display: none;
+	}
+	#PlanetInfo h1 {
+		font-size: 26px;
+		font-family: sans-serif;
+	}
+	
+	.warning {
+		background-color: #ff0000;
+		color: #ffffff;
+		font-weight: bold;
+		margin: 10px;
+		padding: 10px;
+	}	
+		 
+	</style>
+
+</head>
+	<body>
+		
+		<h1>Select planet</h1>
+		<select id="PlanetCategories">
+			
+		</select>
+		<select id="Planets"></select>
+		
+		<div id="PlanetInfo">  
+			<div class="warning hidden">Danger, Zerg present.</div>
+			<h1></h1>
+		</div>
+	</body>
+</html>
