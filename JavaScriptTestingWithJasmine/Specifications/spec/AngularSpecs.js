@@ -1,5 +1,9 @@
-
-describe("Planet selector is started", function () {
+/// <reference path="../../Scripts/jquery-2.0.3.js"/>
+/// <reference path="../lib/jasmine-1.3.0/jasmine.js" />
+/// <reference path="../../Scripts/angular.js" />
+/// <reference path="../../Scripts/angular-mocks.js" />
+/// <reference path="../../Application/AngularPlanetSelector.js" />
+describe("Planet selector is started (Angular)", function () {
 
 	var expectedControllerName = 'PlanetSelectorController';
 	var $scope;
@@ -13,7 +17,6 @@ describe("Planet selector is started", function () {
 			ppController = $controller(expectedControllerName, { $scope: $scope });
 		});
 	});
-
 
 	it("should select the fist planet for the first category", function () {
 		expect($scope.selectedPlanet).toEqual($scope.planets[0]);

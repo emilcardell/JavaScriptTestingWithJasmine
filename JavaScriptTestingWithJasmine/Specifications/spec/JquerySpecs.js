@@ -1,4 +1,7 @@
-describe("Planet selector is started", function() {
+/// <reference path="../../Scripts/jquery-2.0.3.js"/>
+/// <reference path="../lib/jasmine-1.3.0/jasmine.js" />
+/// <reference path="../../Application/JQueryPlanetSelector.js" />
+describe("Planet selector is started (jquery)", function() {
 
 	var htmlFixture;
 	
