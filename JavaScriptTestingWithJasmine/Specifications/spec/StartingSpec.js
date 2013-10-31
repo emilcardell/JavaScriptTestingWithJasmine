@@ -61,7 +61,7 @@ describe("Staring with result 0", function () {
 			
 				makeMeRunAsyncAndLaggy(function () {
 					result = AddToResult(result,5);
-					//console.log(result);
+					console.log(result);
 				});
 			
 				waitsFor(function () {
