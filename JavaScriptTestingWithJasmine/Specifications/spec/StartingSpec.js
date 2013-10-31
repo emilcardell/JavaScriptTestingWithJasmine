@@ -25,6 +25,7 @@ describe("Staring with result 0", function () {
 			expect(result).toEqual(5);
 		});
 		
+		
 		describe("when 4 is added", function () {
 
 			beforeEach(function () {
@@ -43,7 +44,7 @@ describe("Staring with result 0", function () {
 
 
 function makeMeRunAsyncAndLaggy(funcToRun) {
-	setTimeout(funcToRun, 1000);
+	setTimeout(funcToRun, 0);
 }
 
 
@@ -66,12 +67,12 @@ describe("Staring with result 0", function () {
 			
 				waitsFor(function () {
 					return result == 5;
-				}, "result never calculated", 5000);
+				}, "result never calculated", 0);
 			
 		});
 
 		it("result should have a result of 5", function () {
-			runs(function() { expect(result).toEqual(5); });
+			runs(function () { expect(result).toEqual(5); });
 		});
 	});
 });
