@@ -12,6 +12,13 @@ describe("Planet selector is started (Angular)", function () {
 	beforeEach(function () {
 		angular.mock.module('PlanetSelectorApp');
 
+		var httpBackend;
+		angular.mock.inject(function ($httpBackend) {
+			httpBackend = $httpBackend;
+		});
+
+		httpBackend.when('GET').respond([{IsZergInfested:true}]);
+
 		angular.mock.inject(function ($rootScope, $controller) {
 			$scope = $rootScope.$new();
 			ppController = $controller(expectedControllerName, { $scope: $scope });
