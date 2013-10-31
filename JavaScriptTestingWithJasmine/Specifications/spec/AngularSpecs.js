@@ -16,6 +16,14 @@ describe("Planet selector is started (Angular)", function () {
 			$scope = $rootScope.$new();
 			ppController = $controller(expectedControllerName, { $scope: $scope });
 		});
+		
+		//angular.mock.inject(function ($location) {
+		//	location = $location;
+		//});
+
+		//angular.mock.inject(function (parametersFactory) {
+		//	factory = parametersFactory;
+		//});
 	});
 
 	it("should select the fist planet for the first category", function () {
