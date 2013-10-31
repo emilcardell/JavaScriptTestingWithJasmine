@@ -3,22 +3,42 @@
 /// <reference path="../../Application/JQueryPlanetSelector.js" />
 describe("Planet selector is started (jquery)", function() {
 
-	var htmlFixture;
+	var planetSelector;
 	
-	beforeEach(function() {
-		htmlFixture = $('<select>...</select>');
-	});
-	
-	it("should select the fist planet for the first category", function () {
+	beforeEach(function () {
+		var fakeJquery = {};
+		fakeJquery.get = function(url, callback) {
+			callback({ IsZergInfested: true });
+		};
+		planetSelector = planetSelectorModule(fakeJquery);
 	});
 
-	describe("when a planet is selected", function() {
+	describe("when a an infested planet is selected", function() {
 
 		beforeEach(function () {
+			planetSelector.selectedPlanet(1);
 		});
 
-		it("it should show a warning if the planet is zerg infested", function() {
-			expect(false).toBeFalsy();
+		it("it should show a warning", function() {
+			expect(planetSelector.IsZergInfested).toBeTruthy();
+		});
+
+	});
+	
+	describe("when a an not infested planet is selected", function () {
+
+		beforeEach(function () {
+			var fakeJquery = {};
+			fakeJquery.get = function (url, callback) {
+				callback({ IsZergInfested: false });
+			};
+			planetSelector = planetSelectorModule(fakeJquery);
+			
+			planetSelector.selectedPlanet(2);
+		});
+
+		it("it should NOT show a warning", function () {
+			expect(planetSelector.IsZergInfested).toBeFalsy();
 		});
 
 	});
