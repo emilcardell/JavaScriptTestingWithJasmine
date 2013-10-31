@@ -1,4 +1,30 @@
-﻿$(function () {
+﻿var planetSelectorModule = function(minEgnaJquery) {
+	var publicModule = {};
+
+	publicModule.selectedPlanetWarning = function(planetId) {
+		JQuery.get("/isPlanetZergInfested/" + planetId, function (isInfestedData) {
+
+			publicModule.isZergInfested = isInfestedData.IsZergInfested;
+		});
+	};
+
+	return publicModule;
+};
+
+$(function() {
+	viewModel(planetSelectorModule(JQuery)).init();
+});
+
+planetSelectorModule(myFakeJquery);
+
+var viewModel = function (planetSelectorModule) {
+	var publicModule = {}
+	var selectedPlanetId = $('#Planets').find(":selected").val();
+	planetSelectorModule.selectedPlanetWarning(selectedPlanetId);
+};
+
+
+$(function () {
 	$.get("/planetCategories", function (data) {
 		console.log(data);
 		var options = $("#PlanetCategories");
